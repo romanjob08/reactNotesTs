@@ -1,10 +1,12 @@
-export type Notes = {
+import {IconDefinition} from "@fortawesome/free-regular-svg-icons";
+
+export type Note = {
     id: string
-    image: string
+    image: IconDefinition
     name: string
     created: string
     category: string
     content: string
-    active: boolean
     dates: string
+    active: boolean
 }

@@ -1,2 +1,1 @@
-export * from './getRandomID'
-export * from './getDateFromText'
+export * from './notes.type'

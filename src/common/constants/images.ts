@@ -1,9 +1,10 @@
-import {faExclamationCircle, faLightbulb, faShoppingCart} from "@fortawesome/free-solid-svg-icons";
+import {faExclamationCircle, faLightbulb, faShoppingCart, faArchive, faRemove,faPencil} from "@fortawesome/free-solid-svg-icons";
 
-
-export enum Images {
-    IDEA = faExclamationCircle,
-    TASK = 'faShoppingCart',
-    RANDOM_THOUGHT = 'faLightbulb'
+export const images = {
+    idea: faExclamationCircle,
+    task: faShoppingCart,
+    randomThought: faLightbulb,
+    archive: faArchive,
+    remove: faRemove,
+    corrected: faPencil
 }
-

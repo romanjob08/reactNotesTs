@@ -1,7 +1,6 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faExclamationCircle, faLightbulb, faShoppingCart} from "@fortawesome/free-solid-svg-icons";
+import {IconProp} from "@fortawesome/fontawesome-svg-core";
 
-export const getImage = (src: string) => {
-  return <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
-
+export const getImage = (src: IconProp) => {
+  return <FontAwesomeIcon icon={src}></FontAwesomeIcon>
 }

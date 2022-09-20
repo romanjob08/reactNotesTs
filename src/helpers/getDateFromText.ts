@@ -8,7 +8,3 @@ export const getDateFromText = (content: string) => {
         return null;
     }
 }
-
-export const randomID = () => {
-    return "id" + Math.random().toString(16).slice(2);
-}
