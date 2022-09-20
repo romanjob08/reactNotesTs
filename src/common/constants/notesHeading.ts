@@ -1,0 +1,1 @@
+export const statusHeading = [' ','Note Category', 'Active', 'Archived']

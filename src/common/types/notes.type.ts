@@ -1,4 +1,4 @@
-export interface INotes {
+export type Notes = {
     id: string
     image: string
     name: string
@@ -6,7 +6,5 @@ export interface INotes {
     category: string
     content: string
     active: boolean
-    archived: boolean
     dates: string
 }
-
