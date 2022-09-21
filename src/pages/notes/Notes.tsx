@@ -1,18 +1,37 @@
 import React, {useState} from "react";
 import StatusTable from "./statusTable/StatusTable";
-import {useNotes} from "../../hooks";
+import {useAppDispatch, useNotes} from "../../hooks";
 import {TableCreator} from "../../components/tableElements/TableCreator";
+import {notesSlice} from "../../redux/reducers/NotesSlice";
+import {getSpecialData, randomID} from "../../helpers";
+import {images} from "../../common";
 
 export const Notes = () => {
     const [archived, setArchived] = useState(false)
     const {notes} = useNotes()
+
+    const {addNevNote} = notesSlice.actions
+    const dispatch = useAppDispatch()
+
     const activeNotes = notes.filter(item => item.active)
     const archivedNotes = notes.filter(item => !item.active)
     return <>
         <div>
-            <TableCreator notes={activeNotes}/>
+            <TableCreator activeNotes={activeNotes} removeAllNotes={archivedNotes} archivedAll= {false}/>
         </div>
-        <button onClick={() => {}}>
+        <button onClick={() => {
+            dispatch(addNevNote({
+                id: randomID(),
+                image: images.task,
+                name: '',
+                created: getSpecialData(),
+                category: 'Task',
+                content: '',
+                active: true,
+                dates: '',
+                redact: true
+            }))
+        }}>
             Add Note
         </button>
         <hr/>
@@ -26,7 +45,7 @@ export const Notes = () => {
                 Hide archive
             </button>}
         {archived
-            ? <div><TableCreator notes={archivedNotes}/></div>
+            ? <div><TableCreator activeNotes={archivedNotes} removeAllNotes={activeNotes} archivedAll= {true}/></div>
             : null}
         <hr/>
         <div>

@@ -1,9 +1,9 @@
 import {images, Note} from "../../common";
 import {randomID} from "../../helpers";
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 type NotesState = {
-    notes: Note[];
+    notes: Note[] ;
     error: string;
 }
 
@@ -17,7 +17,8 @@ const initialState: NotesState = {
             category: 'Task',
             content: 'Tomatoes, bread',
             active: true,
-            dates: ''
+            dates: '',
+            redact: false
         },
         {
             id: randomID(),
@@ -27,7 +28,8 @@ const initialState: NotesState = {
             category: 'Random Thought',
             content: 'Human evolution',
             active: true,
-            dates: ''
+            dates: '',
+            redact: false
         },
         {
             id: randomID(),
@@ -37,7 +39,8 @@ const initialState: NotesState = {
             category: 'Idea',
             content: 'Implement updates',
             active: true,
-            dates: '3/5/2021, 5/5/2021'
+            dates: '3/5/2021, 5/5/2021',
+            redact: false
         },
         {
             id: randomID(),
@@ -47,7 +50,8 @@ const initialState: NotesState = {
             category: 'Task',
             content: 'Power doesn\'t exist',
             active: true,
-            dates: ''
+            dates: '',
+            redact: false
         },
         {
             id: randomID(),
@@ -57,7 +61,8 @@ const initialState: NotesState = {
             category: 'Task',
             content: 'The Lean Startup',
             active: true,
-            dates: ''
+            dates: '',
+            redact: false
         },
         {
             id: randomID(),
@@ -67,7 +72,8 @@ const initialState: NotesState = {
             category: 'Idea',
             content: 'Build a warehouse for firewood',
             active: false,
-            dates: ''
+            dates: '',
+            redact: false
         },
     ],
     error: ''
@@ -77,6 +83,34 @@ export const notesSlice = createSlice({
     name: 'notes',
     initialState,
     reducers: {
+        archiveAll(state, action: PayloadAction<boolean>){
+            state.notes.map(item => item.active = action.payload)
+        },
+        removeAll(state, action: PayloadAction<Note[]>){
+            state.notes = action.payload
+        },
+        archiveNote(state, action: PayloadAction<string>){
+            const index = state.notes.findIndex(item => item.id === action.payload)
+            const actItem = state.notes[index].active
+            state.notes[index].active = !actItem;
+        },
+        removeNote(state, action: PayloadAction<string>){
+            const index = state.notes.findIndex(item => item.id === action.payload)
+            if (index >= 0){state.notes.splice(index, 1)}
+        },
+        addNevNote(state, action: PayloadAction<Note>){
+            state.notes.push(action.payload)
+        },
+        redactNote(state, action: PayloadAction<string>) {
+            const index = state.notes.findIndex(item => item.id === action.payload)
+            const actItem = state.notes[index].redact
+            state.notes[index].redact = !actItem;
+        },
+        saveNote(state, action: PayloadAction<string>){
+            const index = state.notes.findIndex(item => item.id === action.payload)
+            const actItem = state.notes[index].redact
+            state.notes[index].redact = !actItem;
+        }
     }
 });
 

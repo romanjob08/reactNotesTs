@@ -4,16 +4,18 @@ import {NotesTableHeader} from "./NotesTableHeader";
 import {Note} from "../../common";
 
 type PropsType = {
-    notes: Note[]
+    removeAllNotes: Note[]
+    archivedAll: boolean
+    activeNotes: Note[]
 }
 
-export const TableCreator: FC<PropsType> = ({notes}) => {
+export const TableCreator: FC<PropsType> = ({activeNotes, archivedAll, removeAllNotes}) => {
     return <>
         <div>
             <table>
-                <NotesTableHeader/>
+                <NotesTableHeader archivedAll={archivedAll} removeAllNotes={removeAllNotes}/>
                 <tbody>
-                    {notes.map(item => {
+                    {activeNotes.map(item => {
                         return <div>
                         <TableBodyRoad note={item}/>
                     </div>

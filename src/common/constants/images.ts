@@ -1,4 +1,4 @@
-import {faExclamationCircle, faLightbulb, faShoppingCart, faArchive, faRemove,faPencil} from "@fortawesome/free-solid-svg-icons";
+import {faExclamationCircle, faLightbulb, faShoppingCart, faArchive, faRemove,faPencil, faCheck} from "@fortawesome/free-solid-svg-icons";
 
 export const images = {
     idea: faExclamationCircle,
@@ -6,5 +6,6 @@ export const images = {
     randomThought: faLightbulb,
     archive: faArchive,
     remove: faRemove,
-    corrected: faPencil
+    corrected: faPencil,
+    save: faCheck
 }

@@ -9,4 +9,5 @@ export type Note = {
     content: string
     dates: string
     active: boolean
+    redact: boolean
 }

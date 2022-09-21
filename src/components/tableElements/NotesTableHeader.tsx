@@ -1,15 +1,25 @@
 import React, {FC} from "react";
-import {images, notesHeading} from "../../common";
+import {images, Note, notesHeading} from "../../common";
 import {getImage} from "../../helpers/getImage";
+import {notesSlice} from "../../redux/reducers/NotesSlice";
+import {useAppDispatch} from "../../hooks";
 
-export const NotesTableHeader: FC = () => {
+type PropsType = {
+    removeAllNotes: Note[]
+    archivedAll: boolean
+}
+
+export const NotesTableHeader: FC<PropsType> = ({archivedAll, removeAllNotes}) => {
+    const {archiveAll, removeAll} = notesSlice.actions
+    const dispatch = useAppDispatch()
+
     return (
         <div>
             <thead>
             <tr>
                 {notesHeading.map(heading => <th>{heading}</th>)}
-                <th><button>{getImage(images.archive)}</button></th>
-                <th><button>{getImage(images.remove)}</button></th>
+                <th><button onClick={() => {dispatch(archiveAll(archivedAll))}}>{getImage(images.archive)}</button></th>
+                <th><button onClick={() => {dispatch(removeAll(removeAllNotes))}}>{getImage(images.remove)}</button></th>
             </tr>
             </thead>
         </div>
