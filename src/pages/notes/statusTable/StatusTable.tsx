@@ -2,7 +2,7 @@ import React, {FC} from "react";
 import {useNotes} from "../../../hooks";
 import {Categories, images} from "../../../common";
 import {statusHeading} from "../../../common";
-import {getImage} from "../../../helpers/getImage";
+import {getImage} from "../../../helpers";
 
 const StatusTable: FC = () => {
     const {notes} = useNotes()

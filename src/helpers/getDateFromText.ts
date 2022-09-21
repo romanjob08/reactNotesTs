@@ -5,6 +5,6 @@ export const getDateFromText = (content: string) => {
         console.log(dates.join(', '))
         return dates.join(', ');
     } else {
-        return null;
+        return ''
     }
 }

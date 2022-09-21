@@ -101,10 +101,9 @@ export const notesSlice = createSlice({
         addNevNote(state, action: PayloadAction<Note>){
             state.notes.push(action.payload)
         },
-        redactNote(state, action: PayloadAction<string>) {
-            const index = state.notes.findIndex(item => item.id === action.payload)
-            const actItem = state.notes[index].redact
-            state.notes[index].redact = !actItem;
+        redactNote(state, action: PayloadAction<Note>) {
+            const index = state.notes.findIndex(item => item.id === action.payload.id)
+            state.notes[index] = action.payload
         },
         saveNote(state, action: PayloadAction<string>){
             const index = state.notes.findIndex(item => item.id === action.payload)
