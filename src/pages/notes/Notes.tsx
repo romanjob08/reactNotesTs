@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import './Notes.scss'
-import StatusTable from "./statusTable/StatusTable";
+import StatusTable from "./StatusTable/StatusTable";
 import {useAppDispatch, useNotes} from "../../hooks";
 import {Table} from "../../components/tableElements/Table";
 import {notesSlice} from "../../redux/reducers/NotesSlice";

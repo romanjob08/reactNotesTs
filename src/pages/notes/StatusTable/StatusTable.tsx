@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import './statusTable.scss'
+import './StatusTable.scss'
 import {useNotes} from "../../../hooks";
 import {Categories, images} from "../../../common";
 import {statusHeading} from "../../../common";
