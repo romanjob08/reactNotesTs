@@ -1,4 +1,5 @@
 import React, {FC} from "react";
+import './statusTable.scss'
 import {useNotes} from "../../../hooks";
 import {Categories, images} from "../../../common";
 import {statusHeading} from "../../../common";
@@ -11,10 +12,10 @@ const StatusTable: FC = () => {
     const randomThoughts = notes.filter(item => item.category === Categories.RANDOM_THOUGHT)
     return (
         <div className='statusTable'>
-            <table className='table table-bordered'>
+            <table>
                 <thead>
                 <tr>
-                    {statusHeading.map(heading => <th>{heading}</th>)}
+                    {statusHeading.map((heading,id) => <th key={`${id}status-heading`}>{heading}</th>)}
                 </tr>
                 </thead>
                 <tbody>
@@ -25,7 +26,7 @@ const StatusTable: FC = () => {
                     <td>{tasks.filter(item => !item.active).length}</td>
                 </tr>
                 }{<tr>
-                    <td>{getImage(images.idea)}</td>
+                    <td className={'category-img'}>{getImage(images.idea)}</td>
                     <td>{Categories.IDEA}</td>
                     <td>{ideas.filter(item => item.active).length}</td>
                     <td>{ideas.filter(item => !item.active).length}</td>

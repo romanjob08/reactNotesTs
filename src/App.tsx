@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import {Notes} from "./pages/notes/Notes";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {setupStore} from "./redux/setupStore";
@@ -12,7 +12,13 @@ const App = () => {
         <Provider store={store}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Notes/>}></Route>
+                    <Route
+                        path="/"
+                        element={<div className={'app-wrapper'}>
+                            <Notes/>
+                        </div>
+                        }
+                    ></Route>
                 </Routes>
             </BrowserRouter>
         </Provider>

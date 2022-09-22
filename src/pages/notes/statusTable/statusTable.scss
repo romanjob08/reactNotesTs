@@ -1,0 +1,27 @@
+.statusTable {
+  table {
+    text-align: left;
+    width: 100%;
+    -webkit-border-horizontal-spacing: unset;
+    -webkit-border-vertical-spacing: 10px;
+
+    thead {
+      color: white;
+      font-size: 20px;
+      background-color: #989899;
+      th {
+        padding: 5px;
+      }
+    }
+    tbody {
+      tr{
+        background-color: #e6e8f4;
+        height: 2em;
+      }
+      .category-img {
+        text-align: center;
+        width: 2em
+      }
+    }
+  }
+}

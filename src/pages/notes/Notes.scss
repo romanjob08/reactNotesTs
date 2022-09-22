@@ -1,0 +1,11 @@
+.add-btn {
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 1s;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #629d20;
+    border-radius: 5px;
+  }
+}

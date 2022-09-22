@@ -1,1 +1,1 @@
-export const notesHeading = ['', 'Name', 'Created', 'Category', 'Content', 'Dates', '']
+export const notesHeading = ['Name', 'Created', 'Category', 'Content', 'Dates']

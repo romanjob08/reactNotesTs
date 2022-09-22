@@ -1,0 +1,26 @@
+.body-table {
+  display: grid;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 5px;
+  font-size: 16px;
+  background-color: #e4e6f3;
+  margin: 10px 0;
+  grid-template-columns: 30px 120px 120px 140px 1fr 150px 35px 35px 35px;
+  border-radius: 5px;
+
+  &__cell-name {
+    max-width: 120px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  };
+  &__cell-contents {
+    max-width: 300px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  };
+
+
+}

@@ -37,7 +37,7 @@ const initialState: NotesState = {
             name: 'New Feature',
             created: 'May 05,2021',
             category: 'Idea',
-            content: 'Implement updates',
+            content: 'I’m gonna have a dentist appointment on the 3/5/2021, I moved it from 5/5/2021',
             active: true,
             dates: '3/5/2021, 5/5/2021',
             redact: false
@@ -100,12 +100,32 @@ export const notesSlice = createSlice({
         },
         addNevNote(state, action: PayloadAction<Note>){
             state.notes.push(action.payload)
+            state.notes.map(item => {
+                if(item.redact){
+
+                }
+            })
         },
         redactNote(state, action: PayloadAction<Note>) {
             const index = state.notes.findIndex(item => item.id === action.payload.id)
-            state.notes[index] = action.payload
+            let newNote = action.payload
+            if (action.payload.redact){
+                newNote = {
+                    id: action.payload.id,
+                    image: action.payload.image,
+                    name: action.payload.name,
+                    created: action.payload.created,
+                    category: action.payload.category,
+                    content: action.payload.content,
+                    active: action.payload.active,
+                    dates: action.payload.dates,
+                    redact: false
+                }
+            }
+            state.notes[index] = newNote
+
         },
-        saveNote(state, action: PayloadAction<string>){
+        refreshNote(state, action: PayloadAction<string>){
             const index = state.notes.findIndex(item => item.id === action.payload)
             const actItem = state.notes[index].redact
             state.notes[index].redact = !actItem;

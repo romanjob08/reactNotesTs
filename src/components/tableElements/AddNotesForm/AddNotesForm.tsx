@@ -1,10 +1,10 @@
 import React, {FC} from "react";
-import {notesSlice} from "../../redux/reducers/NotesSlice";
-import {useAppDispatch} from "../../hooks";
+import './AddNotesForm.scss'
+import {notesSlice} from "../../../redux/reducers/NotesSlice";
+import {useAppDispatch} from "../../../hooks";
 import {useFormik} from "formik";
-import {Categories, images, Note} from "../../common";
-import {getImageType} from "../../helpers";
-import {getDateFromText, getImage, getSpecialData} from "../../helpers";
+import {Categories, images, Note} from "../../../common";
+import {getDateFromText, getImage, getImageType, getSpecialData} from "../../../helpers";
 import * as Yup from "yup";
 
 type PropsType = {
@@ -18,13 +18,13 @@ const signupSchema = Yup.object().shape({
 });
 
 export const AddNotesForm: FC<PropsType> = ({note}) => {
-    const {removeNote, archiveNote, redactNote, saveNote} = notesSlice.actions;
+    const {removeNote, redactNote} = notesSlice.actions;
     const dispatch = useAppDispatch();
 
     const formik = useFormik({
         initialValues: {
             name: note.name,
-            category: Categories.TASK,
+            category: note.category,
             content: note.content,
         },
         onSubmit: (values) => {
@@ -45,23 +45,23 @@ export const AddNotesForm: FC<PropsType> = ({note}) => {
 
     return (
         <form onSubmit={formik.handleSubmit}>
-            <div>
-                <td>{getImage(note.image)}</td>
-                <td>
-                    <label htmlFor="name"></label>
+            <div className='body-form'>
+                <div>{getImage(note.image)}</div>
+                <div>
                     <input
+                        className='int-name'
                         id="name"
                         name="name"
-                        type=""
+                        type="text"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.name}
                     />
-                </td>
-                <td>{note.created}</td>
-                <td>
-                    <label htmlFor="category"></label>
+                </div>
+                <div>{note.created}</div>
+                <div className='body-road__cell-category'>
                     <select
+                        className='category-selector'
                         name="category"
                         value={formik.values.category}
                         onChange={formik.handleChange}
@@ -77,10 +77,10 @@ export const AddNotesForm: FC<PropsType> = ({note}) => {
                             {Categories.RANDOM_THOUGHT}
                         </option>
                     </select>
-                </td>
-                <td>
-                    <label htmlFor="content"></label>
+                </div>
+                <div>
                     <input
+                        className='int-content'
                         id="content"
                         name="content"
                         type="text"
@@ -88,28 +88,22 @@ export const AddNotesForm: FC<PropsType> = ({note}) => {
                         onBlur={formik.handleBlur}
                         value={formik.values.content}
                     />
-                </td>
-                <td>{note.dates}</td>
-                <td>
-                    <button type={'submit'}>
+                </div>
+                <div >{note.dates}</div>
+                <div></div>
+                <div>
+                    <button type='submit'>
                         {getImage(images.save)}
                     </button>
-                </td>
-                <td>
-                    <button onClick={() => {
-                        dispatch(archiveNote(note.id))
-                    }}>
-                        {getImage(images.archive)}
-                    </button>
-                </td>
-                <td>
+                </div>
+                <div>
                     <button onClick={() => {
                         dispatch(removeNote(note.id))
                     }}>
                         {getImage(images.remove)}
                     </button>
-                </td>
+                </div>
             </div>
         </form>
-    )
+    );
 };
