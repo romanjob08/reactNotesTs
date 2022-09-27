@@ -1,11 +1,11 @@
 import {months} from "../common";
 
 export const getSpecialData = () => {
-    const wholeDate = new Date(Date.now());
+    const wholeDate = new Date();
     const Year = wholeDate.getFullYear();
-    const Month = months[wholeDate.getMonth() - 1];
+    const Month = months[wholeDate.getMonth()];
     const Day = () => {
-        const day = wholeDate.getDay()
+        const day = wholeDate.getDate()
         return day < 10 ? `0${day}` : day
     };
     return `${Month} ${Day()},${Year}`

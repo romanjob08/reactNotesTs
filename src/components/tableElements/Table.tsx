@@ -5,20 +5,25 @@ import {Note} from "../../common";
 
 type PropsType = {
     removeAllNotes: Note[]
-    activeNotes: Note[]
+    notes: Note[]
     archivedAll: boolean
+    notesStatus: string
 };
 
-export const Table: FC<PropsType> = ({activeNotes, archivedAll, removeAllNotes}) => {
+export const Table: FC<PropsType> = ({notes, archivedAll, removeAllNotes, notesStatus}) => {
+    console.log(notes)
     return (
         <div>
             <TableHeader archivedAll={archivedAll} removeAllNotes={removeAllNotes}/>
             <div>
-            {activeNotes.map((item, index) => {
+            {notes.length > 0
+                ? notes.map((item, index) => {
                 return <div key={`${index}-table-road`}>
                     <TableBody note={item}/>
                 </div>
-            })}
+
+            }): <h2>{`Here should be your ${notesStatus} notes`}</h2>
+            }
             </div>
         </div>
     );

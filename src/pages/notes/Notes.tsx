@@ -20,7 +20,7 @@ export const Notes = () => {
 
     return <>
         <div>
-            <Table activeNotes={activeNotes} removeAllNotes={archivedNotes} archivedAll={false}/>
+            <Table notesStatus = 'active' notes={activeNotes} removeAllNotes={archivedNotes} archivedAll={false}/>
         </div>
         <button className='add-btn' onClick={() => {
             dispatch(addNevNote({
@@ -52,11 +52,9 @@ export const Notes = () => {
             >
                 Hide archive
             </button>}
-        {archived
-            ? <div>
-                <Table activeNotes={archivedNotes} removeAllNotes={activeNotes} archivedAll={true}/>
-            </div>
-            : null}
+        <div>
+            <Table notesStatus = 'archived' notes={archivedNotes} removeAllNotes={activeNotes} archivedAll={true}/>
+        </div>
         <hr/>
         <div>
             <StatusTable/>
