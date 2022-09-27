@@ -20,7 +20,7 @@ const StatusTable: FC = () => {
                 </thead>
                 <tbody>
                 {<tr>
-                    <td>{getImage(images.task)}</td>
+                    <td className={'category-img'}>{getImage(images.task)}</td>
                     <td>{Categories.TASK}</td>
                     <td>{tasks.filter(item => item.active).length}</td>
                     <td>{tasks.filter(item => !item.active).length}</td>
@@ -32,7 +32,7 @@ const StatusTable: FC = () => {
                     <td>{ideas.filter(item => !item.active).length}</td>
                 </tr>
                 }{<tr>
-                    <td>{getImage(images.randomThought)}</td>
+                    <td className={'category-img'}>{getImage(images.randomThought)}</td>
                     <td>{Categories.RANDOM_THOUGHT}</td>
                     <td>{randomThoughts.filter(item => item.active).length}</td>
                     <td>{randomThoughts.filter(item => !item.active).length}</td>
