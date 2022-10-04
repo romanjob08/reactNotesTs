@@ -101,9 +101,7 @@ export const notesSlice = createSlice({
         addNevNote(state, action: PayloadAction<Note>){
             state.notes.push(action.payload)
             state.notes.map(item => {
-                if(item.redact){
-
-                }
+                if(item.redact){}
             })
         },
         redactNote(state, action: PayloadAction<Note>) {

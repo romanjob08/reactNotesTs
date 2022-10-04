@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import './Notes.scss'
 import StatusTable from "./StatusTable/StatusTable";
 import {useAppDispatch, useNotes} from "../../hooks";
 import {Table} from "../../components/tableElements/Table";
@@ -11,7 +10,7 @@ export const Notes = () => {
     const [archived, setArchived] = useState(false)
     const {notes} = useNotes()
 
-    const {addNevNote, redactNote} = notesSlice.actions
+    const {addNevNote} = notesSlice.actions
     const dispatch = useAppDispatch()
 
     const activeNotes = notes.filter(item => item.active)
@@ -19,44 +18,52 @@ export const Notes = () => {
     const redactNotes = notes.filter(item => item.redact)
 
     return <>
-        <div>
-            <Table notesStatus = 'active' notes={activeNotes} removeAllNotes={archivedNotes} archivedAll={false}/>
+        <div className='p-1'>
+            <Table notesStatus='active' notes={activeNotes} removeAllNotes={archivedNotes} archivedAll={false}/>
         </div>
-        <button className='add-btn' onClick={() => {
-            dispatch(addNevNote({
-                id: randomID(),
-                image: images.task,
-                name: '',
-                created: getSpecialData(),
-                category: 'Task',
-                content: '',
-                active: true,
-                dates: '',
-                redact: true
-            }))
-            redactNotes.map(item => {
-                dispatch(redactNote(item))
-            })
-        }}>
-            Add Note
-        </button>
+        {redactNotes.length <= 0
+            ? <button
+                className='rounded-lg p-1 bg-emerald-800 hover:bg-emerald-600 active:bg-amber-500 focus:outline-none focus:ring focus:ring-green-200 text-lg m-2'
+                onClick={() => {
+                    dispatch(addNevNote({
+                        id: randomID(),
+                        image: images.task,
+                        name: '',
+                        created: getSpecialData(),
+                        category: 'Task',
+                        content: '',
+                        active: true,
+                        dates: '',
+                        redact: true
+                    }))
+                }}>
+                Add Note
+            </button>
+            : null
+        }
         <hr/>
         {!archived
-            ? <button className='add-btn'
-                      onClick={() => setArchived(true)}
+            ? <button
+                className='rounded-lg p-1 bg-emerald-800 hover:bg-emerald-600 active:bg-amber-500 focus:outline-none focus:ring focus:ring-green-200 text-lg m-2'
+                onClick={() => setArchived(true)}
             >
                 Show archive
             </button>
-            : <button className='add-btn'
-                      onClick={() => setArchived(false)}
-            >
-                Hide archive
-            </button>}
-        <div>
-            <Table notesStatus = 'archived' notes={archivedNotes} removeAllNotes={activeNotes} archivedAll={true}/>
-        </div>
+            : <div>
+                <button
+                    className='rounded-lg p-1 bg-emerald-800 hover:bg-emerald-600 active:bg-amber-500 focus:outline-none focus:ring focus:ring-green-200 text-lg m-2'
+                    onClick={() => setArchived(false)}
+                >
+                    Hide archive
+                </button>
+                <div className='p-1'>
+                    <Table notesStatus='archived' notes={archivedNotes} removeAllNotes={activeNotes}
+                           archivedAll={true}/>
+                </div>
+            </div>
+        }
         <hr/>
-        <div>
+        <div className='p-1'>
             <StatusTable/>
         </div>
     </>

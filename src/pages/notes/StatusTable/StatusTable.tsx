@@ -1,5 +1,4 @@
 import React, {FC} from "react";
-import './StatusTable.scss'
 import {useNotes} from "../../../hooks";
 import {Categories, images} from "../../../common";
 import {statusHeading} from "../../../common";
@@ -11,28 +10,28 @@ const StatusTable: FC = () => {
     const ideas = notes.filter(item => item.category === Categories.IDEA)
     const randomThoughts = notes.filter(item => item.category === Categories.RANDOM_THOUGHT)
     return (
-        <div className='statusTable'>
-            <table>
-                <thead>
-                <tr>
-                    {statusHeading.map((heading,id) => <th key={`${id}status-heading`}>{heading}</th>)}
+        <div className='text-left'>
+            <table className='w-full'>
+                <thead className='rounded-md text-white border border-y-4 border-y-white'>
+                <tr className='bg-gray-500 '>
+                    {statusHeading.map((heading,id) => <th key={`${id}status-heading`} className='p-1'>{heading}</th>)}
                 </tr>
                 </thead>
-                <tbody>
-                {<tr>
-                    <td className={'category-img'}>{getImage(images.task)}</td>
+                <tbody className=''>
+                {<tr className='h-9 bg-gray-300 border border-y-4 border-y-white'>
+                    <td className={'text-center'}>{getImage(images.task)}</td>
                     <td>{Categories.TASK}</td>
                     <td>{tasks.filter(item => item.active).length}</td>
                     <td>{tasks.filter(item => !item.active).length}</td>
-                </tr>
-                }{<tr>
-                    <td className={'category-img'}>{getImage(images.idea)}</td>
+                </tr >
+                }{<tr className='h-9 bg-gray-300 border border-y-4 border-y-white'>
+                    <td className={'text-center'}>{getImage(images.idea)}</td>
                     <td>{Categories.IDEA}</td>
                     <td>{ideas.filter(item => item.active).length}</td>
                     <td>{ideas.filter(item => !item.active).length}</td>
                 </tr>
-                }{<tr>
-                    <td className={'category-img'}>{getImage(images.randomThought)}</td>
+                }{<tr className='h-9 bg-gray-300 border border-y-4 border-y-white'>
+                    <td className={'text-center w-10'}>{getImage(images.randomThought)}</td>
                     <td>{Categories.RANDOM_THOUGHT}</td>
                     <td>{randomThoughts.filter(item => item.active).length}</td>
                     <td>{randomThoughts.filter(item => !item.active).length}</td>

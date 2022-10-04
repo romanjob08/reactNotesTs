@@ -1,5 +1,4 @@
 import React, {FC} from "react";
-import './AddNotesForm.scss'
 import {notesSlice} from "../../../redux/reducers/NotesSlice";
 import {useAppDispatch} from "../../../hooks";
 import {useFormik} from "formik";
@@ -45,11 +44,14 @@ export const AddNotesForm: FC<PropsType> = ({note}) => {
 
     return (
         <form onSubmit={formik.handleSubmit}>
-            <div className='body-form'>
-                <div>{getImage(note.image)}</div>
-                <div>
+            <div className='rounded-sm flex flex-row bg-gray-300 my-1.5 text-[16px] p-2'>
+                <div className='w-[30px] text-center'>
+                    {getImage(note.image)}
+                </div>
+                <div className='w-[120px] text-ellipsis whitespace-nowrap overflow-hidden'>
                     <input
-                        className='int-name'
+                        className='rounded-[5px] w-full'
+                        placeholder={'Name:'}
                         id="name"
                         name="name"
                         type="text"
@@ -58,10 +60,12 @@ export const AddNotesForm: FC<PropsType> = ({note}) => {
                         value={formik.values.name}
                     />
                 </div>
-                <div>{note.created}</div>
-                <div className='body-road__cell-category'>
+                <div className='w-[125px]'>
+                    {note.created}
+                </div>
+                <div className='w-[140px]'>
                     <select
-                        className='category-selector'
+                        className='rounded-[5px] w-full'
                         name="category"
                         value={formik.values.category}
                         onChange={formik.handleChange}
@@ -78,9 +82,11 @@ export const AddNotesForm: FC<PropsType> = ({note}) => {
                         </option>
                     </select>
                 </div>
-                <div>
+                <div className='w-[330px] text-ellipsis whitespace-nowrap overflow-hidden mx-1'>
                     <input
-                        className='int-content'
+                        className='rounded-[5px] w-full px-2'
+                        placeholder={'Note content'}
+                        autoFocus={true}
                         id="content"
                         name="content"
                         type="text"
@@ -89,14 +95,16 @@ export const AddNotesForm: FC<PropsType> = ({note}) => {
                         value={formik.values.content}
                     />
                 </div>
-                <div >{note.dates}</div>
-                <div></div>
-                <div>
+                <div className='w-[150px]'>
+                    {note.dates}
+                </div>
+                <div className='w-[35px] text-center text-gray-600'></div>
+                <div className='rounded-[100%] w-[35px] text-center text-green-900 bg-yellow-500'>
                     <button type='submit'>
                         {getImage(images.save)}
                     </button>
                 </div>
-                <div>
+                <div className='w-[35px] text-center text-gray-600'>
                     <button onClick={() => {
                         dispatch(removeNote(note.id))
                     }}>

@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.scss';
 import {Notes} from "./pages/notes/Notes";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {setupStore} from "./redux/setupStore";
@@ -14,7 +13,7 @@ const App = () => {
                 <Routes>
                     <Route
                         path="/"
-                        element={<div className={'app-wrapper'}>
+                        element={<div className='max-w-screen-lg p-4 h-full mx-auto my-2 '>
                             <Notes/>
                         </div>
                         }
