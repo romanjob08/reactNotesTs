@@ -1,10 +1,10 @@
 import React, {FC} from "react";
-import {notesSlice} from "../../../redux/reducers/NotesSlice";
+import * as Yup from "yup";
+import {notesSlice} from "../../../redux";
 import {useAppDispatch} from "../../../hooks";
 import {useFormik} from "formik";
 import {Categories, images, Note} from "../../../common";
 import {getDateFromText, getImage, getImageType, getSpecialData} from "../../../helpers";
-import * as Yup from "yup";
 
 type PropsType = {
     note: Note

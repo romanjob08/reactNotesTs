@@ -2,8 +2,8 @@ import React, {FC} from "react";
 import {images, Note} from "../../../common";
 import {getImage} from "../../../helpers";
 import {useAppDispatch} from "../../../hooks";
-import {notesSlice} from "../../../redux/reducers/NotesSlice";
-import {AddNotesForm} from "../AddNotesForm/AddNotesForm";
+import {notesSlice} from "../../../redux";
+import {AddNotesForm} from "../AddNotesForm";
 
 type PropsType = {
     note: Note

@@ -1,10 +1,10 @@
 import React, {FC} from "react";
-import {useNotes} from "../../../hooks";
-import {Categories, images} from "../../../common";
-import {statusHeading} from "../../../common";
-import {getImage} from "../../../helpers";
+import {useNotes} from "../../hooks";
+import {Categories, images} from "../../common";
+import {statusHeading} from "../../common";
+import {getImage} from "../../helpers";
 
-const StatusTable: FC = () => {
+export const StatusTable: FC = () => {
     const {notes} = useNotes()
     const tasks = notes.filter(item => item.category === Categories.TASK)
     const ideas = notes.filter(item => item.category === Categories.IDEA)
@@ -42,5 +42,3 @@ const StatusTable: FC = () => {
         </div>
     )
 }
-
-export default StatusTable

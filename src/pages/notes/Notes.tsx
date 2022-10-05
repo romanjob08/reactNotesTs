@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import StatusTable from "./StatusTable/StatusTable";
 import {useAppDispatch, useNotes} from "../../hooks";
-import {Table} from "../../components/tableElements/Table";
-import {notesSlice} from "../../redux/reducers/NotesSlice";
+import {Button, StatusTable, Table} from "../../components";
+import {notesSlice} from "../../redux";
 import {getSpecialData, randomID} from "../../helpers";
 import {images} from "../../common";
 
@@ -43,19 +42,18 @@ export const Notes = () => {
         }
         <hr/>
         {!archived
-            ? <button
-                className='rounded-lg p-1 bg-emerald-800 hover:bg-emerald-600 active:bg-amber-500 focus:outline-none focus:ring focus:ring-green-200 text-lg m-2'
-                onClick={() => setArchived(true)}
-            >
-                Show archive
-            </button>
+            ? <Button
+                className={'rounded-lg p-1 bg-emerald-800 hover:bg-emerald-600 active:bg-amber-500 focus:outline-none focus:ring focus:ring-green-200 text-lg m-2'}
+                cullBack={setArchived}
+                cullBackValues={true}
+                textValue={'Show archive'}/>
             : <div>
-                <button
+                <Button
                     className='rounded-lg p-1 bg-emerald-800 hover:bg-emerald-600 active:bg-amber-500 focus:outline-none focus:ring focus:ring-green-200 text-lg m-2'
-                    onClick={() => setArchived(false)}
-                >
-                    Hide archive
-                </button>
+                    cullBack={setArchived}
+                    cullBackValues={false}
+                    textValue='Hide archive'
+                />
                 <div className='p-1'>
                     <Table notesStatus='archived' notes={archivedNotes} removeAllNotes={activeNotes}
                            archivedAll={true}/>

@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import {images, Note, notesHeading} from "../../../common";
 import {getImage} from "../../../helpers";
-import {notesSlice} from "../../../redux/reducers/NotesSlice";
+import {notesSlice} from "../../../redux";
 import {useAppDispatch} from "../../../hooks";
 
 type PropsType = {

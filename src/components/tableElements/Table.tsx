@@ -1,6 +1,6 @@
 import React, {FC} from "react";
-import {TableBody} from "./TableBody/TableBody";
-import {TableHeader} from "./TableHeader/TableHeader";
+import {TableBody} from "./TableBody";
+import {TableHeader} from "./TableHeader";
 import {Note} from "../../common";
 
 type PropsType = {

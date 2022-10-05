@@ -1,6 +1,6 @@
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {images, Note} from "../../common";
 import {randomID} from "../../helpers";
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 type NotesState = {
     notes: Note[] ;
