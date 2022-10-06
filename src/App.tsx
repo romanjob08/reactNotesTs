@@ -1,7 +1,7 @@
 import React from 'react';
-import {Notes} from "./pages/notes/Notes";
+import {Notes} from "./pages";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {setupStore} from "./redux/setupStore";
+import {setupStore} from "./redux";
 import {Provider} from "react-redux";
 
 const store = setupStore()

@@ -1,60 +1,38 @@
+import {Note} from "../../../common";
 import React, {FC} from "react";
-import {images, Note} from "../../../common";
-import {getImage} from "../../../helpers";
-import {useAppDispatch} from "../../../hooks";
-import {notesSlice} from "../../../redux";
-import {AddNotesForm} from "../AddNotesForm";
+import {TableRow} from "./TableRow";
 
 type PropsType = {
-    note: Note
+    notes?: Note[]
+    notesStatus?: string
+    tbBG?: string
+    tbTextSize?: string
+    plugPosition?: string
 }
 
-export const TableBody: FC<PropsType> = ({note}) => {
-    const {removeNote, archiveNote, refreshNote} = notesSlice.actions
-    const dispatch = useAppDispatch()
-
-    return (
-        <>{!note.redact
-            ? <div className='rounded-sm flex flex-row bg-gray-300 my-1.5 text-[16px] p-2'>
-                <div className='w-[30px] text-center'>
-                    {getImage(note.image)}
+export const TableBody: FC<PropsType> = (
+    {
+        notes = [],
+        notesStatus,
+        tbBG,
+        tbTextSize,
+        plugPosition
+    }
+) => {
+    return <div>
+        {notes.length > 0
+            ? notes.map((item, index) => {
+                return <div key={`${index}-table-road`}>
+                    <TableRow
+                        note={item}
+                        tbBG={tbBG}
+                        tbTextSize={tbTextSize}
+                    />
                 </div>
-                <div className='w-[120px] text-ellipsis whitespace-nowrap overflow-hidden'
-                     title={note.name}>{note.name}
-                </div>
-                <div className='w-[125px]'>
-                    {note.created}</div>
-                <div className='w-[140px]'>
-                    {note.category}</div>
-                <div className='w-[330px] text-ellipsis whitespace-nowrap overflow-hidden'
-                     title={note.content}>{note.content}</div>
-                <div className='w-[150px]'>
-                    {note.dates}</div>
-                <div className='w-[35px] text-center text-gray-600'>
-                    <button onClick={() => {
-                        dispatch(refreshNote(note.id))
-                    }}>
-                        {getImage(images.corrected)}
-                    </button>
-                </div>
-                <div className='w-[35px] text-center text-gray-600'>
-                    <button onClick={() => {
-                        dispatch(archiveNote(note.id))
-                    }}>
-                        {getImage(images.archive)}
-                    </button>
-                </div>
-                <div className='w-[35px] text-center text-gray-600'>
-                    <button onClick={() => {
-                        dispatch(removeNote(note.id))
-                    }}>
-                        {getImage(images.remove)}
-                    </button>
-                </div>
-            </div>
-            :
-            <AddNotesForm note={note}/>
+            })
+            : <h2 className={`px-3 font-bold text-2xl text-${plugPosition}`}>
+                {`Here should be your ${notesStatus} notes`}
+            </h2>
         }
-        </>
-    );
-};
+    </div>
+}

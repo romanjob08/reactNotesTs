@@ -5,32 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c8a13d5-f198-4d40-8a82-148260e34712" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/tableElements/TableBody/TableRow.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/Table.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tableElements/AddNotesForm/AddNotesForm.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tableElements/AddNotesForm/AddNotesForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tableElements/AddNotesForm/AddNotesForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/StatusTable/StatusTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/StatusTable/StatusTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/button/Botton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/Botton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/tableElements/Table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tableElements/Table.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tableElements/TableBody/TableBody.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/tableElements/TableBody/TableBody.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tableElements/TableBody/TableBody.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tableElements/TableHeader/TableHeader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/tableElements/TableBody/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tableElements/TableBody/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/tableElements/TableHeader/TableHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tableElements/TableHeader/TableHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/notes/Notes.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/notes/Notes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/notes/Notes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/notes/StatusTable/StatusTable.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/notes/StatusTable/StatusTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/notes/StatusTable/StatusTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/NotesSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/NotesSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/ButtonExemple.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/ButtonExemple.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/ButtonTest.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/ButtonTest.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/StatusTable.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/StatusTable.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/TableBody.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/TableHeader.stories.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="tailwind" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -42,23 +54,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roma Liza/Desktop/Mykhasiv_Roman/Projects/radency/reactNotesTypeScript&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Roma Liza\\Desktop\\Mykhasiv_Roman\\Projects\\radency\\reactNotesTypeScript\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Roma Liza/Desktop/Mykhasiv_Roman/Projects/radency/reactNotesTypeScript/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\Roma Liza\\Desktop\\Mykhasiv_Roman\\Projects\\radency\\reactNotesTypeScript\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Roma Liza\Desktop\Mykhasiv_Roman\Projects\radency\reactNotesTypeScript\src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

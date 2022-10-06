@@ -5,16 +5,24 @@ import {notesSlice} from "../../../redux";
 import {useAppDispatch} from "../../../hooks";
 
 type PropsType = {
-    removeAllNotes: Note[]
-    archivedAll: boolean
+    removeAllNotes?: Note[]
+    archivedAll?: boolean
+    thBG?: string
+    thTextSize?: string
 };
 
-export const TableHeader: FC<PropsType> = ({archivedAll, removeAllNotes}) => {
+export const TableHeader: FC<PropsType> = (
+    {
+        archivedAll = true,
+        removeAllNotes = [],
+        thBG,
+        thTextSize
+    }) => {
     const {archiveAll, removeAll} = notesSlice.actions
     const dispatch = useAppDispatch()
 
     return (
-        <div className='rounded-lg flex flex-row bg-gray-500 text-white my-1 text-lg font-bold p-2'>
+        <div className={`rounded-lg flex flex-row ${thBG} text-white my-1 ${thTextSize} font-bold p-2`}>
             <div className='w-[30px]'></div>
             <div className='w-[120px]'>
                 {notesHeading[0]}
